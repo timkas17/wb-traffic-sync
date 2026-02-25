@@ -60,9 +60,10 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PORT: ${APP_PORT}
       NODE_ENV: production
-      WB_TOKEN: ${WB_TOKEN}
+      WB_API_TOKEN: ${WB_API_TOKEN}
+      WB_API_URL: ${WB_API_URL}
       GOOGLE_SHEETS_IDS: ${GOOGLE_SHEETS_IDS}
-      GOOGLE_APPLICATION_CREDENTIALS: ./GOOGLE-TOKEN.json
+      GOOGLE_TOKEN: ./GOOGLE_TOKEN.json
 
     ports:
       - ${APP_PORT}:${APP_PORT}
@@ -79,6 +80,5 @@ services:
         max-size: 10m
         max-file: 5
 
-    command: >
-      sh -c "npx knex migrate:latest && npm run start"
+    command: [ "npm", "run", "start" ]
     restart: unless-stopped

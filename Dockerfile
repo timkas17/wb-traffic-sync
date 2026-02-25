@@ -1,4 +1,3 @@
-# your node version
 FROM node:20-alpine AS deps-prod
 
 WORKDIR /app
@@ -22,9 +21,4 @@ WORKDIR /app
 COPY --from=build /app/package*.json .
 COPY --from=deps-prod /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
-COPY --from=build /app/knexfile.ts ./ 
-COPY --from=build /app/src/migrations ./src/migrations
-
-COPY GOOGLE-TOKEN.json ./google-key.json
-
-CMD ["sh", "-c", "npx knex migrate:latest && node dist/index.js"]
+COPY --from=build /app/GOOGLE_TOKEN.json ./

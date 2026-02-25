@@ -26,7 +26,7 @@ const HEADERS = [
 //Отправка данных в google sheets
 export async function syncTariffsToSheets(tariffs: TariffRow[]) {
     const auth = new google.auth.GoogleAuth({
-        keyFile: env.GOOGLE_CREDENTIALS_TOKEN,
+        keyFile: env.GOOGLE_TOKEN,
         scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
 

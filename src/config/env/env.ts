@@ -23,7 +23,7 @@ const envSchema = z.object({
     //Tokens for Google Sheets and Wildberries API
     WB_API_URL: z.string(),
     WB_API_TOKEN: z.string(),
-    GOOGLE_CREDENTIALS_TOKEN: z.string(),
+    GOOGLE_TOKEN: z.string(),
     GOOGLE_SHEETS_IDS: z
         .string()
         .default("")
@@ -44,7 +44,7 @@ const env = envSchema.parse({
     NODE_ENV: process.env.NODE_ENV,
     APP_PORT: process.env.APP_PORT,
     GOOGLE_SHEETS_IDS: process.env.GOOGLE_SHEETS_IDS,
-    GOOGLE_CREDENTIALS_TOKEN: process.env.GOOGLE_CREDENTIALS_TOKEN,
+    GOOGLE_TOKEN: process.env.GOOGLE_TOKEN,
     WB_API_URL: process.env.WB_API_URL,
     WB_API_TOKEN: process.env.WB_API_TOKEN,
 });
